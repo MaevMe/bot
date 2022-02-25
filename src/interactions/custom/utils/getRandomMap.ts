@@ -1,4 +1,5 @@
 import { MessageAttachment } from 'discord.js'
+import folder from '../../../constants/folder'
 import path from 'path'
 import fs from 'fs'
 
@@ -6,7 +7,7 @@ import pools from '../../../constants/mapPool'
 
 const getRandomMap = (pool: string) => {
   const { quick, newComer, ranked } = pools
-  const files = fs.readdirSync(`${path.resolve('./')}/build/assets/siege/maps`, {
+  const files = fs.readdirSync(`${path.resolve('./')}${folder}/assets/siege/maps`, {
     withFileTypes: true,
   })
 

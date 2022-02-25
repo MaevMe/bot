@@ -1,6 +1,5 @@
 import { VoiceState, CategoryChannel, GuildMember } from 'discord.js'
 
-// TODO: Fix count iteration for channel name
 // Get categoryId
 
 const renameChannels = async (
@@ -21,7 +20,8 @@ const renameChannels = async (
   })
 
   const newName = firstMember.displayName
-  const channelsCount = category.children.size
+  // TODO: Fix count iteration for channel name
+  const channelsCount = category.children.size / 2
 
   await channel.setName(`${channelsCount}┃${newName}`)
   if (textChannel) await textChannel.setName(`${channelsCount}┃${newName}`)

@@ -12,7 +12,7 @@ const getAction = (
   const joined = !oldChannelId && !!newChannelId
   const empty = oldChannel?.members.size === 0
 
-  // Check depending on if ids are found in categoryIds or createChannelIds
+  // TODO: Check depending on if ids are found in categoryIds or createChannelIds
 
   // if (createChannelIds.includes(newChannelId) && (joined || moved)) return 'create'
 

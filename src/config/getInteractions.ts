@@ -1,5 +1,6 @@
-import fs from 'fs'
+import folder from '../constants/folder'
 import path from 'path'
+import fs from 'fs'
 
 import attachInteractions from '../utils/attachInteractions'
 
@@ -8,7 +9,7 @@ const getInteractions = async () => {
   let commands = new Map()
   let buttons = new Map()
 
-  const interactions = path.resolve('./') + '/build/interactions'
+  const interactions = path.resolve('./') + folder + '/interactions'
   const files = fs
     .readdirSync(interactions, { withFileTypes: true })
     .filter((file) => !file.isDirectory())

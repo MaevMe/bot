@@ -1,9 +1,10 @@
 import type Interaction from '../types/Interaction'
+import folder from '../constants/folder'
 import path from 'path'
 import fs from 'fs'
 
 const attachInteractions = async (folderName: string, interaction: Interaction) => {
-  const server = path.resolve('./') + '/build/interactions/'
+  const server = path.resolve('./') + folder + '/interactions/'
   const interactions = fs.readdirSync(server, { withFileTypes: true })
   const [hasFolder] = interactions.filter((file) => file.name === folderName && file.isDirectory())
 

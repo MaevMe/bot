@@ -1,4 +1,6 @@
 import { MessageAttachment } from 'discord.js'
-const logo = new MessageAttachment(`./build/assets/siege/Logo.png`, 'logo.png')
+import folder from '../../../constants/folder'
+
+const logo = new MessageAttachment('.' + folder + `/assets/siege/Logo.png`, 'logo.png')
 
 export default logo

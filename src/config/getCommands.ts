@@ -1,10 +1,11 @@
 import { ApplicationCommand } from 'discord.js'
+import folder from '../constants/folder'
 import path from 'path'
 import fs from 'fs'
 
 const getCommands = async () => {
   // TODO: Add a prod env to decide path, I called it ENV in Heroku
-  const interactions = path.resolve('./') + '/build/interactions'
+  const interactions = path.resolve('./') + folder + '/interactions'
   const folders = fs
     .readdirSync(interactions, { withFileTypes: true })
     .filter((file) => file.isDirectory())
