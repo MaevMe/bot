@@ -35,7 +35,7 @@ const getRandomMap = (pool: string) => {
   const name = `${result.charAt(0).toUpperCase() + result.slice(1)}`.trim()
 
   const image = new MessageAttachment(
-    `./src/assets/siege/maps/${fileName}.${ext}`,
+    `./build/assets/siege/maps/${fileName}.${ext}`,
     'map.jpeg'
   ).setDescription(`Photo of ${name}`)
 
