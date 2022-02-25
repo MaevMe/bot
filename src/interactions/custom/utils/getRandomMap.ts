@@ -6,7 +6,7 @@ import pools from '../../../constants/mapPool'
 
 const getRandomMap = (pool: string) => {
   const { quick, newComer, ranked } = pools
-  const files = fs.readdirSync(`${path.resolve('./')}/src/assets/siege/maps`, {
+  const files = fs.readdirSync(`${path.resolve('./')}/build/assets/siege/maps`, {
     withFileTypes: true,
   })
 
