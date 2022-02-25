@@ -8,7 +8,7 @@ const getInteractions = async () => {
   let commands = new Map()
   let buttons = new Map()
 
-  const interactions = path.resolve('./') + '/src/interactions'
+  const interactions = path.resolve(__dirname) + '/src/interactions'
   const files = fs
     .readdirSync(interactions, { withFileTypes: true })
     .filter((file) => !file.isDirectory())

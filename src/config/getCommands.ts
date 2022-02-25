@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 
 const getCommands = async () => {
-  const interactions = path.resolve('./') + '/src/interactions'
+  const interactions = path.resolve(__dirname) + '/src/interactions'
   const folders = fs
     .readdirSync(interactions, { withFileTypes: true })
     .filter((file) => file.isDirectory())
