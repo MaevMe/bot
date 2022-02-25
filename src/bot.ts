@@ -23,10 +23,10 @@ const launch = async () => {
 
   const client = new Client({
     intents: 32767,
-    partials: ['CHANNEL'],
+    partials: ['CHANNEL', 'GUILD_MEMBER', 'MESSAGE', 'USER'],
   })
 
-  client.once('ready', (client) => console.log('🚀 Launched'))
+  client.once('ready', (client) => console.log('🚀 Bot is online'))
 
   client.on('interactionCreate', (interaction) => {
     if (interaction.isCommand()) {
