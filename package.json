@@ -5,7 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "dev": "nodemon ./src/bot.ts",
-    "build": "tsc -p .",
+    "build": "tsc -p . && cp -r ./src/assets ./build",
     "start": "node ./build/bot.js"
   },
   "repository": {
