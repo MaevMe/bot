@@ -4,11 +4,11 @@ import getCommands from '../config/getCommands'
 
 const registerCommands = async () => {
   const commands = await getCommands()
-  if (!process.env.TOKEN || !process.env.BOT) return
+  if (!process.env.TOKEN || !process.env.CLIENT_ID) return
 
   const rest = new REST({ version: '9' }).setToken(process.env.TOKEN)
 
-  await rest.put(Routes.applicationGuildCommands(process.env.BOT, '939289877449678888'), {
+  await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, '939289877449678888'), {
     body: commands,
   })
 
