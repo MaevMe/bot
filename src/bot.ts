@@ -4,6 +4,7 @@ import { Client } from 'discord.js'
 import registerCommands from './utils/registerCommands'
 import getInteractions from './config/getInteractions'
 import connectDB from './config/connectDB'
+import express from 'express'
 
 import dotenv from 'dotenv'
 dotenv.config()
@@ -14,6 +15,9 @@ const events: Events[] = ['messageCreate', 'voiceStateUpdate']
 const launch = async () => {
   await connectDB()
   await registerCommands()
+
+  // TODO: Reconsider Heroku as we need an actual app, unecessary?
+  const app = express()
 
   const { classes, buttons, commands } = await getInteractions()
 
@@ -44,7 +48,14 @@ const launch = async () => {
     })
   }
 
+  app.get('/', (req, res) => {
+    res.json({ hello: 'world' })
+  })
+
   client.login(process.env.TOKEN)
+  app.listen(process.env.PORT || 6060, () => {
+    console.log('🚀 Express up and running')
+  })
 }
 
 launch()
