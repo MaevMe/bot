@@ -1,6 +1,6 @@
 import { VoiceState, CategoryChannel, GuildMember } from 'discord.js'
 
-// TODO: Fix count iteration
+// TODO: Fix count iteration for channel name
 // Get categoryId
 
 const renameChannels = async (
@@ -11,7 +11,7 @@ const renameChannels = async (
   if (!oldState.channel) return
   const { channel } = oldState
 
-  // Find the category, and then the channels to rename in it
+  // TODO: Find the category, and then the channels to rename in it
 
   const firstMember = channel.members.filter((user) => user.id !== member.id).first()
   if (!firstMember) return

@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 
 const getCommands = async () => {
-  // TODO: Add a prod env to decide path
+  // TODO: Add a prod env to decide path, I called it ENV in Heroku
   const interactions = path.resolve('./') + '/build/interactions'
   const folders = fs
     .readdirSync(interactions, { withFileTypes: true })
