@@ -6,7 +6,7 @@ import pools from '../../../constants/mapPool'
 
 const getRandomMap = (pool: string) => {
   const { quick, newComer, ranked } = pools
-  const files = fs.readdirSync(`${path.resolve('./')}/build/assets/siege/maps`, {
+  const files = fs.readdirSync(`${path.resolve('./')}/assets/siege/maps`, {
     withFileTypes: true,
   })
 
@@ -35,7 +35,7 @@ const getRandomMap = (pool: string) => {
   const name = `${result.charAt(0).toUpperCase() + result.slice(1)}`.trim()
 
   const image = new MessageAttachment(
-    `./build/assets/siege/maps/${fileName}.${ext}`,
+    `./assets/siege/maps/${fileName}.${ext}`,
     'map.jpeg'
   ).setDescription(`Photo of ${name}`)
 
