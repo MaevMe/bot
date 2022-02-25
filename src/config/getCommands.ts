@@ -3,6 +3,7 @@ import path from 'path'
 import fs from 'fs'
 
 const getCommands = async () => {
+  // TODO: Add a prod env to decide path
   const interactions = path.resolve('./') + '/build/interactions'
   const folders = fs
     .readdirSync(interactions, { withFileTypes: true })

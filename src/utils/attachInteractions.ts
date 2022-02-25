@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 
 const attachInteractions = async (folderName: string, interaction: Interaction) => {
-  const server = path.resolve('./') + '/src/interactions/'
+  const server = path.resolve('./') + '/build/interactions/'
   const interactions = fs.readdirSync(server, { withFileTypes: true })
   const [hasFolder] = interactions.filter((file) => file.name === folderName && file.isDirectory())
 
