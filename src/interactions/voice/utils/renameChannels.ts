@@ -3,7 +3,11 @@ import { VoiceState, CategoryChannel, GuildMember } from 'discord.js'
 // TODO: Fix count iteration
 // Get categoryId
 
-const renameChannels = async (oldState: VoiceState, category: CategoryChannel, member: GuildMember) => {
+const renameChannels = async (
+  oldState: VoiceState,
+  category: CategoryChannel,
+  member: GuildMember
+) => {
   if (!oldState.channel) return
   const { channel } = oldState
 

@@ -1,9 +1,12 @@
 import { VoiceState, CategoryChannel, GuildMember, User } from 'discord.js'
 
-// TODO: Keep track of deleting unknown channel error
-// Get categoryId
+// TODO: Get categoryId
 
-const deleteChannels = async (oldState: VoiceState, category: CategoryChannel, member: GuildMember) => {
+const deleteChannels = async (
+  oldState: VoiceState,
+  category: CategoryChannel,
+  member: GuildMember
+) => {
   const { channel } = oldState
 
   // Find the category, and then the channels to delete inside of it
