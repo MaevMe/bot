@@ -2,19 +2,12 @@ import { Schema, model } from 'mongoose'
 
 const serverSchema = new Schema({
   id: String,
-  initialVC: String,
-  modUpdates: String,
-  reactions: [
-    {
-      messageID: String,
-      reactionRoles: [
-        {
-          roleID: String,
-          reactionID: String,
-        },
-      ],
-    },
-  ],
+  tempVoiceChannels: {
+    active: Boolean,
+    createChannel: String,
+    namingFormat: String,
+    categoryID: String,
+  },
 })
 
 export default model('Server', serverSchema)
