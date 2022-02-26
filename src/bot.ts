@@ -10,7 +10,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 type Events = keyof ClientEvents
-const events: Events[] = ['messageCreate', 'voiceStateUpdate']
+const events: Events[] = ['messageCreate', 'voiceStateUpdate', 'guildCreate']
 
 const launch = async () => {
   await connectDB()
