@@ -1,5 +1,6 @@
 import Interaction from '../types/Interaction'
 import Server from '../models/Server'
+import registerCommands from '../utils/registerCommands'
 
 const interaction: Interaction = {
   guildCreate: async (client, guild) => {
@@ -13,6 +14,8 @@ const interaction: Interaction = {
           categoryID: '',
         },
       })
+
+      await registerCommands(guild.id)
       console.log('@createServer success', server)
     } catch (err) {
       console.error('@createServer', err)
