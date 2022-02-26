@@ -8,7 +8,7 @@ const interaction: Interaction = {
         id: guild.id,
       })
     } catch (err) {
-      console.log('@createServer', err)
+      console.error('@createServer', err)
     }
   },
 }
