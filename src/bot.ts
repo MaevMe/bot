@@ -14,7 +14,7 @@ const events: Events[] = ['messageCreate', 'voiceStateUpdate']
 
 const launch = async () => {
   await connectDB()
-  await registerCommands()
+  // await registerCommands()
 
   // TODO: Reconsider Heroku as we need an actual app, unecessary?
   const app = express()
