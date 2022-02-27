@@ -21,7 +21,7 @@ const interaction: Interaction = {
     if (!category) return
     if (category.type !== 'GUILD_CATEGORY') return
 
-    const channelsCount = category.children.filter((child) => child.type === 'GUILD_VOICE').size
+    const channelsCount = category.children.filter(child => child.type === 'GUILD_VOICE').size
 
     switch (action) {
       case 'create':
