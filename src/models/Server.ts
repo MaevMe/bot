@@ -1,7 +1,10 @@
 import { Schema, model } from 'mongoose'
 
 const serverSchema = new Schema({
-  id: String,
+  id: {
+    type: String,
+    unique: true,
+  },
   tempVoiceChannels: {
     active: Boolean,
     usingCreatedChannels: Boolean,

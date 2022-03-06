@@ -1,6 +1,6 @@
 import { VoiceState, CategoryChannel, GuildMember } from 'discord.js'
 
-// Get channelId, categoryId
+// TODO: Get naming format
 
 const createChannels = async (
   newState: VoiceState,

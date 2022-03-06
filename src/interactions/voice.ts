@@ -5,17 +5,20 @@ import deleteChannels from './voice/utils/deleteChannels'
 import createChannels from './voice/utils/createChannels'
 import renameChannels from './voice/utils/renameChannels'
 
+import Server from '../models/Server'
+
 const interaction: Interaction = {
   voiceStateUpdate: async (client, oldState, newState) => {
     const { guild, member } = newState
     const { channelId: newChannelId } = newState
     const { channelId: oldChannelId, channel: oldChannel } = oldState
 
-    // TODO: Get ID's from database depending on server
-    const createChannelId = '940608847695982602'
-    const categoryID = '939289877449678890'
+    const {
+      tempVoiceChannels: { createChannelID, categoryID },
+    } = await Server.findOne({ id: guild.id })
+
     const category = guild.channels.cache.get(categoryID)
-    const action = getAction(createChannelId, categoryID, newChannelId, oldChannelId, oldChannel)
+    const action = getAction(createChannelID, categoryID, newChannelId, oldChannelId, oldChannel)
 
     if (!member) return
     if (!category) return
