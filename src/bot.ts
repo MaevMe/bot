@@ -26,9 +26,9 @@ const launch = async () => {
     partials: ['CHANNEL', 'GUILD_MEMBER', 'MESSAGE', 'USER'],
   })
 
-  client.once('ready', (client) => console.log('🚀 Bot is online'))
+  client.once('ready', client => console.log('🚀 Bot is online'))
 
-  client.on('interactionCreate', (interaction) => {
+  client.on('interactionCreate', interaction => {
     if (interaction.isCommand()) {
       const [command] = interaction.commandName.split('/')
       commands.get(command)(client, interaction)

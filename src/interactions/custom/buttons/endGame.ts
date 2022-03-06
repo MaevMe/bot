@@ -15,9 +15,8 @@ const endGame = async (client: Client, interaction: ButtonInteraction) => {
       content: 'Only the creator of the game can end it.',
     })
   }
-
   if (category?.type === 'GUILD_CATEGORY') {
-    category.children.forEach(async (child) => {
+    category.children.forEach(async child => {
       if (child.deletable) await child.delete()
     })
 
