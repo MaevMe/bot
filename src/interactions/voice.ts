@@ -14,8 +14,10 @@ const interaction: Interaction = {
     const { channelId: oldChannelId, channel: oldChannel } = oldState
 
     const {
-      tempVoiceChannels: { createChannelID, categoryID },
+      tempVoiceChannels: { createChannelID, categoryID, namingFormat, includeTextChannel, active },
     } = await Server.findOne({ id: guild.id })
+
+    if (!active) return
 
     const category = guild.channels.cache.get(categoryID)
     const action = getAction(createChannelID, categoryID, newChannelId, oldChannelId, oldChannel)
@@ -28,13 +30,20 @@ const interaction: Interaction = {
 
     switch (action) {
       case 'create':
-        return await createChannels(newState, category, member, channelsCount)
+        return await createChannels(
+          newState,
+          category,
+          member,
+          channelsCount,
+          namingFormat,
+          includeTextChannel
+        )
 
       case 'delete':
         return await deleteChannels(oldState, category, member)
 
       case 'rename':
-        return await renameChannels(oldState, category, member)
+        return await renameChannels(oldState, category, member, namingFormat)
 
       default:
         return

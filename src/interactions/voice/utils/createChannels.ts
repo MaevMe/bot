@@ -6,24 +6,23 @@ const createChannels = async (
   newState: VoiceState,
   category: CategoryChannel,
   member: GuildMember,
-  channelsCount: number
+  channelsCount: number,
+  namingFormat: string,
+  includeTextChannel: boolean
 ) => {
-  const nameFormat = '{count}┃{creator}'
-
-  // Find the channelscount from the correct category
-  const channelName = nameFormat
-    .replace('{count}', channelsCount.toString())
-    .replace('{creator}', member.user.username)
-
-  // Find the category to create channels in
+  const channelName = namingFormat
+    .replace('{index}', channelsCount.toString())
+    .replace('{username}', member.user.username)
 
   const newVoiceChannel = await category.createChannel(channelName, {
     type: 'GUILD_VOICE',
   })
 
-  await category.createChannel(channelName, {
-    type: 'GUILD_TEXT',
-  })
+  if (includeTextChannel) {
+    await category.createChannel(channelName, {
+      type: 'GUILD_TEXT',
+    })
+  }
 
   newState.setChannel(newVoiceChannel)
 }
