@@ -5,7 +5,7 @@ const serverSchema = new Schema({
   tempVoiceChannels: {
     active: Boolean,
     usingCreatedChannels: Boolean,
-    createChannel: String,
+    createChannelID: String,
     namingFormat: String,
     categoryID: String,
     userLimit: Number,
